@@ -1,11 +1,14 @@
-from flask import Flask, redirect, url_for, request
-from flask import make_response
+from flask import Flask, render_template, redirect, url_for, request
 
-if request.method == 'Post':
-    name = request.form['param']
+app = Flask(__name__)
 
-    # include 3+ here:____________
 
-    #result = ""
-    # response = make_response('{"response": '+result'}')
-    # return response
+@app.route('/', method=['GET', 'POST'])
+def main():
+    if request.method == 'Post':
+        name = request.form['param']
+
+        # include 3+ here:____________
+
+        result = name + "hi2"
+        return render_template('response', result)

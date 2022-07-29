@@ -1,4 +1,4 @@
-let input = document.getElementById('searchbar').value;
+let input = "hi1";//document.getElementById('searchbar').value;
 
 function sendToPy(input) {
   $.ajax
@@ -12,6 +12,9 @@ function sendToPy(input) {
     );
 }
 
-await function returnData(response) {
-  console.log(response)
+function returnData(response) {
+  console.log("test")
+  console.log("output" + response)
 }
+
+console.log("reached")
