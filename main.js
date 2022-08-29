@@ -1,31 +1,31 @@
+
 let input = document.getElementById('searchbar');
 
 input.addEventListener("keypress", (e) =>
 {
   if(e.key == "Enter")
   {
-    var input_value = input.value;
-    console.log(input_value);
-    sendToPy(input_value);
+    var name = input.value;
+    console.log(name);
+
+      $.ajax ({
+        url: '/analyzer',
+        data: name,
+        type: "POST",
+        success: function(response) {
+          console.log("Success: ", response);
+        },
+        error: function(error) {
+          console.log("Error: ", error);
+        }
+      })
   }
 })
 
-function sendToPy(input) {
-  $.ajax
-    (
-      {
-        type: "POST",
-        url: '/analyzer.py',
-        data: { param: input },
-        success: returnData
-      }
-    );
-}
+//PROBLEM: outputs source code instead of actual output of code
 
-//returndata function not reached
-function returnData(response) {
+/*function returnData(response) {
   console.log("reached1")
   console.log(response)
-}
-
-console.log("reached2")
+}*/
+console.log("reached2");
