@@ -1,9 +1,9 @@
 # Digital Audio Visualizer
 * Prerequisites:
     * externals:
-        *ffmpeg (set to path)
+        * ffmpeg (set to path)
     * python libaries:
-        *youtube-dl
-        *librosa
-        *pygame
-        *numpy
+        * youtube-dl
+        * librosa
+        * pygame
+        * numpy
