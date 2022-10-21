@@ -1,5 +1,4 @@
-# Audio Visualizer
-
+# Digital Audio Visualizer
 Prerequisites:
     externals:
         ffmpeg (set to path)
