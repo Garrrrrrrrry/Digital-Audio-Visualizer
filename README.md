@@ -1,3 +1,3 @@
-# NodejsConsoleApp1
+# Digital Audio Visualizer
 
 
