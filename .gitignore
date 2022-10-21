@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 audio/*
 testing.py
+
+*.css
+*.js
+*.json
+*.html

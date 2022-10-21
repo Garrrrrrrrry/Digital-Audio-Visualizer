@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+#from flask import Flask, render_template, redirect, url_for, request
 
 import re
 import urllib
@@ -91,6 +91,7 @@ def app():
     value = 0
     if(value == 1):
         reset()
+        #input name of song HERE ===================================================|
         name = "Infection - Don't Say A Word"
         videoUrl = input(name)
         formatAudio(videoUrl)
