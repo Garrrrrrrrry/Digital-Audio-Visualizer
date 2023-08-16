@@ -32,3 +32,4 @@ __pycache__/
 *.html
 *.txt
 testing.py
+analyzer.py
