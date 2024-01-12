@@ -13,11 +13,27 @@ def input(name):
     return ("https://www.youtube.com/watch?v=" + "{}".format(searchResults[0]))
 
 def formatAudio(videoUrl):
-    command1 = ["youtube-dl", "-f", "bestaudio", "--extract-audio", 
-                "--audio-format", "mp3", videoUrl, "-o", "../audio/firstOutput.mp3"]
-    subprocess.run(command1, stdout=subprocess.PIPE, text=True)
-    #command2 = ["ffmpeg", "-i", "../audio/firstOutput.mp3", "-y", "../audio/outputAudio.wav"]
-    #subprocess.run(command2, stdout=subprocess.PIPE, text=True)
+    output_mp3 = "../audio/firstOutput.mp3"
+    command_mp3 = [
+        "yt-dlp", videoUrl,
+        "--format", "bestaudio/best",
+        "--extract-audio",
+        "--audio-format", "mp3",
+        "--output", output_mp3
+    ]
+    #command1 = ["youtube-dl", "-f", "bestaudio", "--extract-audio", 
+    #            "--audio-format", "mp3", videoUrl, "-o", "../audio/firstOutput.mp3"]
+    result = subprocess.run(command_mp3, stdout=subprocess.PIPE, text=True)
+    print(result.stdout)
+    
+    output_wav = "../audio/outputAudio.wav"
+    command_wav = [
+        "ffmpeg", "-i", 
+        "../audio/firstOutput.mp3", 
+        "-y", output_wav
+    ]
+    result = subprocess.run(command_wav, stdout=subprocess.PIPE, text=True)
+    print(result.stdout)
 
 def get_decibel(s_h, target_time, freq, freq_to_index, time_to_index):
     return s_h[int(freq * freq_to_index)][int(target_time * time_to_index)]

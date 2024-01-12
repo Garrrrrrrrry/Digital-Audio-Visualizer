@@ -7,6 +7,10 @@ import ctypes
 from intializeWav import get_decibel, reset
 from screen import window_init, draw
 
+#main variables to control songs
+song_name = "Benny Blanco - Eastside" #input song name
+value = 1 #set value to 0 to keep song | 1 to change songs
+
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 screen_width = screensize[0]
@@ -27,9 +31,8 @@ def app():
 
     window, running = window_init(screensize)
     
-    name = "Sabrina Carpenter - Nonsense" #input song name
+    name = song_name
 
-    value = 1 #set value to 0 to keep song | 1 to change songs
     if(value == 1):
         reset(name)
 
@@ -50,6 +53,8 @@ def app():
     py.mixer.music.load(filename)
     py.mixer.music.play(0)
 
+    l1 = l2 = l3 = 50
+
     while running:
         running = interface() 
         window.fill(py.Color(0,0,0))        
@@ -66,6 +71,15 @@ def app():
                 middle = level_height + 1
             if(last > level_height):
                 last = level_height + 1
+            if(first == l1):
+                first = first + 1
+            if(middle == l2):
+                middle = middle + 1
+            if(last == l3):
+                last = last + 1
+            l1 = first
+            l2 = middle
+            l3 = last
             index = int(np.where(spectrum == Hz)[0])
             draw(screen_height, screen_width, window, first, middle, last, index, len(spectrum), multiplier = 1)
         
