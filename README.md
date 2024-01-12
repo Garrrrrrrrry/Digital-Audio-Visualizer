@@ -1,14 +1,16 @@
 # Digital Audio Visualizer
 
-* The audio visualizer uses python to display freqencies to decibels visualization of each audio frame in a song.
+* Is a program that displays freqencies to decibels visualization of each audio frame in a song.
+* Song audio is synced with the visualizayion
 
-* The song and visualization is in sync to play and move at the same time.
-
-* Prerequisites:
-    * externals:
-        * ffmpeg (set to path)
-    * python libaries:
-        * youtube-dl (Most recent version)
-        * librosa
-        * pygame
-        * numpy
+* Dependencies:
+   * ffmpeg:
+   * yt-dlp
+   * librosa
+   * pygane
+   * numpy
+   * any other dependency errors
+ 
+* Instructions:
+   * Change song name using the "song_name" variable
+   * Set value = 1 to change and initialize first song
